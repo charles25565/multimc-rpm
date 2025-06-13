@@ -2,7 +2,7 @@
 
 Name:           multimc
 Version:        1.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        MultiMC Launcher
 
 License:        MIT
