@@ -1,8 +1,8 @@
-%define commit develop
+%define commit 2eb4cc9694f891ebc4139b9164cc733a856f0818
 
 Name:           multimc
 Version:        1.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        MultiMC Launcher
 
 License:        MIT
@@ -32,7 +32,11 @@ cp -a launcher/package/ubuntu/multimc/opt %{buildroot}/
 cp -a launcher/package/ubuntu/multimc/usr %{buildroot}/
 
 %files
-/*
+/opt/multimc/icon.svg
+/opt/multimc/run.sh
+/usr/share/applications/multimc.desktop
+/usr/share/man/man1/multimc.1
+/usr/share/metainfo/multimc.metainfo.xml
 
 %postun
 if [ $1 -eq 0 ]; then
