@@ -28,15 +28,22 @@ A local install wrapper for MultiMC
 %build
 
 %install
-cp -a launcher/package/ubuntu/multimc/opt %{buildroot}/
-cp -a launcher/package/ubuntu/multimc/usr %{buildroot}/
+mkdir -p %{buildroot}/opt/multimc
+mkdir -p %{buildroot}%{_datadir}/applications
+mkdir -p %{buildroot}%{_datadir}/man/man1
+mkdir -p %{buildroot}%{_datadir}/metainfo
+
+install -m 0644 launcher/package/ubuntu/multimc/opt/multimc/icon.svg %{buildroot}/opt/multimc/icon.svg
+install -m 0755 launcher/package/ubuntu/multimc/opt/multimc/run.sh %{buildroot}/opt/multimc/run.sh
+install -m 0644 launcher/package/ubuntu/multimc/usr/share/applications/multimc.desktop %{buildroot}%{_datadir}/applications/multimc.desktop
+install -m 0644 launcher/package/ubuntu/multimc/usr/share/man/man1/multimc.1 %{buildroot}%{_datadir}/man/man1/multimc.1
+install -m 0644 launcher/package/ubuntu/multimc/usr/share/metainfo/multimc.metainfo.xml %{buildroot}%{_datadir}/metainfo/multimc.metainfo.xml
 
 %files
-/opt/multimc/icon.svg
-/opt/multimc/run.sh
-/usr/share/applications/multimc.desktop
-/usr/share/man/man1/multimc.1
-/usr/share/metainfo/multimc.metainfo.xml
+/opt/multimc
+%{_datadir}/applications/multimc.desktop
+%{_datadir}/man/man1/multimc.1*
+%{_datadir}/metainfo/multimc.metainfo.xml
 
 %postun
 if [ $1 -eq 0 ]; then
