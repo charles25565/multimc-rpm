@@ -2,10 +2,10 @@
 
 Name:           multimc
 Version:        1.0
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        MultiMC Launcher
 
-License:        MIT
+License:        MS-PL
 URL:            https://github.com/MultiMC/Launcher
 Source0:        https://github.com/MultiMC/Launcher/archive/%{commit}.tar.gz
 
